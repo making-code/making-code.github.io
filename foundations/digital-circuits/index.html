@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="/images/favicon.png" type="image/x-icon" />
-    <title>Foundations :: Making Code</title>
+    <title>Digital Circuits :: Making Code</title>
     
     
     <link href="/css/nucleus.css?1522965005" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/foundations/">
+  <body class="" data-url="/foundations/digital-circuits/">
     <nav id="sidebar" class="">
 
 
@@ -97,7 +97,7 @@
     
     <li data-nav-id="/foundations/" title="Foundations" class="dd-item 
         parent
-        active
+        
         
         ">
       <a href="/foundations/">
@@ -120,7 +120,7 @@
  
   
     
-      <li data-nav-id="/foundations/digital-circuits/" title="Digital Circuits" class="dd-item ">
+      <li data-nav-id="/foundations/digital-circuits/" title="Digital Circuits" class="dd-item active">
         <a href="/foundations/digital-circuits/">
         Digital Circuits
         
@@ -234,6 +234,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                  
                   <span class="links">
                     
           
@@ -242,7 +244,13 @@
             
           
           
-            <a href='/'></a> > Foundations
+            
+            
+          
+          
+            <a href='/'></a> > <a href='/foundations/'>Foundations</a> > Digital Circuits
+          
+         
           
          
           
@@ -250,14 +258,29 @@
                   </span>
                 </div>
                 
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#rephrasing-the-problem">Rephrasing the problem</a></li>
+<li><a href="#solving-more-complex-problems">Solving more complex problems</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
               </div>
             </div>
             
 
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>Digital Circuits</h1>
           
 
         
@@ -265,25 +288,198 @@
 
 
 
-<h1 id="foundations">Foundations</h1>
+<p>When we work with computers, we mostly deal with digital rather than analog circuits.
+The digital circuits in computers are electrical circuits that operate with two values:
+<strong>true</strong> and <strong>false</strong>, or <em>yes</em> and <em>no</em>.</p>
 
-<p>In this section you can find articles and videos explaining the basic concepts of computer systems and software:</p>
+<p>Computers are digital circuits as they internally only work with those two values, usually referred to as <strong>bits</strong>.
+A bit is a single value that is either true or false.</p>
+
+<p>By combining these bits and making the circuits fairly complex, we can use such digital circuits to solve a variety of problems - after all computers have proven to be quite powerful. But how does that work?</p>
+
+<h2 id="rephrasing-the-problem">Rephrasing the problem</h2>
+
+<p>First we need to rephrase the problem in a way that a digital circuit (e.g. a computer) can work with it.
+For example the problem &ldquo;Can I play computer games today?&rdquo; might be rephrased to &ldquo;Do I have nothing else on my schedule?&rdquo;</p>
+
+<p>That is a &ldquo;Yes/No&rdquo; question, so it can be answered with a digital circuit. Now we need to think of how we would represent a &ldquo;yes&rdquo; and a &ldquo;no&rdquo; answer.
+Let&rsquo;s say we use a single light - if it turns on, we can play and if it doesn&rsquo;t, we can&rsquo;t play.</p>
+
+<p>The digital circuit to answer our question is a power source (e.g. battery), the light (e.g. an LED with a resistor to limit the voltage) and a switch.
+We can use the switch to input the answer to our question and the circuit will show us if we can play:</p>
+
+<table>
+<thead>
+<tr>
+<th>Schedule free?</th>
+<th>Switch</th>
+<th>LED</th>
+<th>Can we play computer games?</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>yes</td>
+<td>on</td>
+<td>on</td>
+<td>yes</td>
+</tr>
+
+<tr>
+<td>no</td>
+<td>off</td>
+<td>off</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+
+<p>Here is a working version of our digital circuit:</p>
+
+<p><img src="/img/content/foundations/Simple-Digital-Circuit-Simulation.gif?width=300px" alt="An LED that turns on, if the switch is in &quot;on&quot; position" /></p>
+
+<p>To avoid having to think of power sources, resistors and so on, there is an alternative way of illustrating digital circuits, often referred to as the &ldquo;logical circuit&rdquo;.
+Here is the same circuit in the logical circuit schematic:</p>
+
+<p><img src="/img/content/foundations/Simple-Digital-Circuit-Logic.gif?width=300px" alt="A logical circuit with a button toggling from zero to one and turning a light on and off" /></p>
+
+<h2 id="solving-more-complex-problems">Solving more complex problems</h2>
+
+<p>The previous digital circuit was not very interesting, but admittedly simple. Let&rsquo;s think of a circuit solving a more complex problem.</p>
+
+<p>We want to build a circuit that can answer if somebody can take the company car or not. Let&rsquo;s rephrase it as a few yes/no questions:</p>
+
+<ol>
+<li>Are you old enough to drive a car?</li>
+<li>Do you have a valid drivers licence?</li>
+<li>Are you an employee of the company?</li>
+<li>If you are not an employee, did somebody give you permission to take the car?</li>
+<li>Is the car available at the desired time?</li>
+</ol>
+
+<p>Alright, there&rsquo;s one important detail in there - question number four only needs to be answered (and answered with &ldquo;yes&rdquo;), if question number 3 has been answered with &ldquo;no&rdquo;.
+We could alternatively rephrase this as &ldquo;Question three OR question four needs to be answered with yes&rdquo;.</p>
+
+<p>Now that we broke the problem down into yes/no questions, we can design our digital circuit.</p>
+
+<p>If we represent all questions 1-5 with switches again, we can only light up the &ldquo;answer&rdquo; light if questions one, two and five are answered and either three or four have been answered with &ldquo;yes&rdquo;, so our circuit would look like this:</p>
+
+<p><img src="/img/content/foundations/Digital-Circuit-2-Simulation.gif?width=300px" alt="A series of switches and an LED where two switches are in parallel, all others are in series" /></p>
+
+<p>To explain the circuit, we can look at the questions again:</p>
+
+<table>
+<thead>
+<tr>
+<th>Old enough?</th>
+<th>Drivers licence?</th>
+<th>Employee?</th>
+<th>alternative: Permission?</th>
+<th>Car free?</th>
+<th>Result</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>no</td>
+<td>doesn&rsquo;t matter</td>
+<td>doesn&rsquo;t matter</td>
+<td>doesn&rsquo;t matter</td>
+<td>doesn&rsquo;t matter</td>
+<td>No</td>
+</tr>
+
+<tr>
+<td>yes</td>
+<td>no</td>
+<td>d.m.</td>
+<td>d.m.</td>
+<td>d.m.</td>
+<td>no</td>
+</tr>
+
+<tr>
+<td>yes</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+<td>d.m.</td>
+<td>no</td>
+</tr>
+
+<tr>
+<td>yes</td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+</tr>
+
+<tr>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+</tr>
+
+<tr>
+<td>yes</td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+
+<tr>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>no</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+
+<p>Looking at the table, we can formulate it this way: If Q3 <strong>OR</strong> Q4 are answered &ldquo;yes&rdquo; <strong>AND</strong> all other questions are answered &ldquo;yes&rdquo;, we can take the company car.</p>
+
+<p>The logical circuit is a lot less cluttered and represents the logic well:</p>
+
+<p><img src="/img/content/foundations/Digital-Circuit-2-Logic.gif?width=300px" alt="A logic circuit with five inputs, a four-input AND gate and a two-input OR gate connecting to a single light" /></p>
+
+<p><a href="https://simulator.io/board/zpiq7E0S3K/1">For an interactive version, click here</a>.</p>
+
+<p>In the logic circuit above, you see an input that is either &ldquo;1&rdquo; (&ldquo;yes&rdquo;, on) or &ldquo;0&rdquo; (&ldquo;no&rdquo;, off) for each question. This is where we put our answers in.</p>
+
+<p>The answers for Q3 and Q4 go into a kind of switch that only outputs true (&ldquo;yes&rdquo;), if <strong>at least one</strong> of the inputs is true. Then, this output and all the other questions go into a switch that only outputs true (&ldquo;yes&rdquo;), if <strong>all</strong> inputs are true.</p>
+
+<p>These two switches are called <strong>gates</strong>, in this case they are an <em>OR</em> and <em>AND</em> gate, specifically.</p>
+
+<div class="notices note" ><p>Such gates (and other types of gates) can be built with transistors, which is why the amount of transistors that fit into a processor matters - more transistors = more gates = more things it can do in a single step.</p>
+</div>
+
+
+<p>We have seen, that both the logical circuit and the &ldquo;real&rdquo; circuit behave identically, so we can use either tool in different stages:</p>
 
 <ul>
-<li><a href="/foundations/digital-circuits">What is a digital circuit?</a></li>
-<li><a href="/foundations/boolean-logic">What is boolean logic?</a></li>
-<li><a href="/foundations/binary-numbers">What are binary numbers?</a></li>
-<li><a href="/foundations/hexadecimal-numbers">What are hexadecimal numbers?</a></li>
-<li><a href="/foundations/algorithm">What is an algorithm?</a></li>
+<li>When we need to figure out the <em>logic</em> (i.e. for which input combination our output is true and false), we can use the logic circuit to find our solution. Such a tool could be <a href="https://simulator.io">simulator.io</a></li>
+<li>When we need to build the real electrical circuit in hardware, we can use the circuit schematics to build the circuit based on what we have found out in the logic circuit. We can use tools such as <a href="https://tinkercad.com">TinkerCAD</a> for this</li>
 </ul>
+
+<p>Now that we understand how digital logic works on a circuit level, we can move to software and binary logic (true and false, 1 and 0). This is called <a href="../boolean-logic/">boolean logic</a> and is discussed in the next section.</p>
 
 
 <footer class=" footline" >
 	
 </footer>
 
-        
-            </div> 
+
         
         </div> 
         
@@ -348,6 +544,23 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                         
                         
                     
@@ -378,22 +591,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -404,10 +601,10 @@
 
 
         
-            <a class="nav nav-prev" href="/about/" title="Where to find what"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/foundations/" title="Foundations"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/foundations/digital-circuits/" title="Digital Circuits" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/foundations/boolean-logic/" title="Boolean logic" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
@@ -437,3 +634,4 @@
 
   </body>
 </html>
+
