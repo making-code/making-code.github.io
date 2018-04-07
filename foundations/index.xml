@@ -17,9 +17,9 @@
       <pubDate>Wed, 04 Apr 2018 09:09:58 +0200</pubDate>
       
       <guid>http://makingco.de/foundations/digital-circuits/</guid>
-      <description>When we work with computers, we mostly deal with digital rather than analog circuits. The digital circuits in computers are electrical circuits that operate with two values: true and false, or yes and no.
-Computers are digital circuits as they internally only work with those two values, usually referred to as bits. A bit is a single value that is either true or false.
-By combining these bits and making the circuits fairly complex, we can use such digital circuits to solve a variety of problems - after all computers have proven to be quite powerful.</description>
+      <description>When we work with computers, we deal with digital rather than analog circuits. They are electrical circuits that operate with two values: true and false, or yes and no.
+Computers only work with those two values, usually referred to as bits. A bit is a single value that is either true or false.
+We combine 8 bits into bytes and create combinations to solve a variety of problems. But how does that work?</description>
     </item>
     
     <item>
@@ -30,7 +30,7 @@ By combining these bits and making the circuits fairly complex, we can use such 
       <guid>http://makingco.de/foundations/boolean-logic/</guid>
       <description>In the previous section, we have seen that we can use gates in a digital circuit to represent and answer more complex problems.
 Logic in software When programming software, we will often have to deal with decisions on a logical level or even on a bit-level. To allow us to do that, all programming languages offer some kind of boolean logic operators.
-Recap: Boolean values We have established that in digital logic, we work with two values.</description>
+  Recap: Boolean values   We have established that in digital logic, we work with two values.</description>
     </item>
     
     <item>

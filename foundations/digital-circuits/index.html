@@ -12,19 +12,19 @@
     <title>Digital Circuits :: Making Code</title>
     
     
-    <link href="/css/nucleus.css?1522965005" rel="stylesheet">
-    <link href="/css/font-awesome.min.css?1522965005" rel="stylesheet">
-    <link href="/css/hybrid.css?1522965005" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1522965005" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1522965005" rel="stylesheet">
-    <link href="/css/auto-complete.css?1522965005" rel="stylesheet">
-    <link href="/css/theme.css?1522965005" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1522965005" rel="stylesheet">
+    <link href="/css/nucleus.css?1523078120" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1523078120" rel="stylesheet">
+    <link href="/css/hybrid.css?1523078120" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1523078120" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1523078120" rel="stylesheet">
+    <link href="/css/auto-complete.css?1523078120" rel="stylesheet">
+    <link href="/css/theme.css?1523078120" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1523078120" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1522965005" rel="stylesheet">
+      <link href="/css/theme-mine.css?1523078120" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1522965005"></script>
+    <script src="/js/jquery-2.x.min.js?1523078120"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -50,14 +50,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1522965005"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1522965005"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1523078120"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1523078120"></script>
 <script type="text/javascript">
     
         var baseurl = '\/';
     
 </script>
-<script type="text/javascript" src="/js/search.js?1522965005"></script>
+<script type="text/javascript" src="/js/search.js?1523078120"></script>
 
     
   </div>
@@ -288,25 +288,24 @@
 
 
 
-<p>When we work with computers, we mostly deal with digital rather than analog circuits.
-The digital circuits in computers are electrical circuits that operate with two values:
-<strong>true</strong> and <strong>false</strong>, or <em>yes</em> and <em>no</em>.</p>
+<p>When we work with computers, we deal with <em>digital</em> rather than <em>analog</em> circuits. They are electrical circuits that operate with two values: <strong>true</strong> and <strong>false</strong>, or <em>yes</em> and <em>no</em>.</p>
 
-<p>Computers are digital circuits as they internally only work with those two values, usually referred to as <strong>bits</strong>.
-A bit is a single value that is either true or false.</p>
+<p>Computers only work with those two values, usually referred to as <strong>bits</strong>. A bit is a single value that is either true or false.</p>
 
-<p>By combining these bits and making the circuits fairly complex, we can use such digital circuits to solve a variety of problems - after all computers have proven to be quite powerful. But how does that work?</p>
+<p>We combine 8 bits into bytes and create combinations to solve a variety of problems. But how does that work?</p>
 
 <h2 id="rephrasing-the-problem">Rephrasing the problem</h2>
 
 <p>First we need to rephrase the problem in a way that a digital circuit (e.g. a computer) can work with it.
-For example the problem &ldquo;Can I play computer games today?&rdquo; might be rephrased to &ldquo;Do I have nothing else on my schedule?&rdquo;</p>
+For example we can rephrase the problem &ldquo;Can I play computer games today?&rdquo; to &ldquo;Do I have nothing else on my schedule?&rdquo;</p>
 
-<p>That is a &ldquo;Yes/No&rdquo; question, so it can be answered with a digital circuit. Now we need to think of how we would represent a &ldquo;yes&rdquo; and a &ldquo;no&rdquo; answer.
-Let&rsquo;s say we use a single light - if it turns on, we can play and if it doesn&rsquo;t, we can&rsquo;t play.</p>
+<p>That is a &ldquo;yes/no&rdquo; question, so  a digital circuit can answer it . Now we need to think of how we would represent a &ldquo;yes&rdquo; and a &ldquo;no&rdquo; answer.</p>
 
-<p>The digital circuit to answer our question is a power source (e.g. battery), the light (e.g. an LED with a resistor to limit the voltage) and a switch.
-We can use the switch to input the answer to our question and the circuit will show us if we can play:</p>
+<p>Let&rsquo;s say we use a single light - if it turns on, we can play and if it doesn&rsquo;t, we can&rsquo;t play.</p>
+
+<p>The digital circuit to answer our question could be a battery, the light and a switch. It might need a resistor, too so that the voltage through the light isn&rsquo;t too high.</p>
+
+<p>We can use the switch to input the answer to our question and the circuit will show us if we can play:</p>
 
 <table>
 <thead>
@@ -339,14 +338,15 @@ We can use the switch to input the answer to our question and the circuit will s
 
 <p><img src="/img/content/foundations/Simple-Digital-Circuit-Simulation.gif?width=300px" alt="An LED that turns on, if the switch is in &quot;on&quot; position" /></p>
 
-<p>To avoid having to think of power sources, resistors and so on, there is an alternative way of illustrating digital circuits, often referred to as the &ldquo;logical circuit&rdquo;.
-Here is the same circuit in the logical circuit schematic:</p>
+<p>We were thinking about batteries, resistors and so on, instead of the logic. To focus on the logic we can leave all those out and focus on the logic only.</p>
+
+<p>Here is the same circuit in the logical circuit schematic:</p>
 
 <p><img src="/img/content/foundations/Simple-Digital-Circuit-Logic.gif?width=300px" alt="A logical circuit with a button toggling from zero to one and turning a light on and off" /></p>
 
 <h2 id="solving-more-complex-problems">Solving more complex problems</h2>
 
-<p>The previous digital circuit was not very interesting, but admittedly simple. Let&rsquo;s think of a circuit solving a more complex problem.</p>
+<p>The previous digital circuit was not very interesting, but pretty simple. Let&rsquo;s think of a circuit solving a more complex problem.</p>
 
 <p>We want to build a circuit that can answer if somebody can take the company car or not. Let&rsquo;s rephrase it as a few yes/no questions:</p>
 
@@ -358,12 +358,13 @@ Here is the same circuit in the logical circuit schematic:</p>
 <li>Is the car available at the desired time?</li>
 </ol>
 
-<p>Alright, there&rsquo;s one important detail in there - question number four only needs to be answered (and answered with &ldquo;yes&rdquo;), if question number 3 has been answered with &ldquo;no&rdquo;.
-We could alternatively rephrase this as &ldquo;Question three OR question four needs to be answered with yes&rdquo;.</p>
+<p>We can see that question number four only matters, if the answer to question number 3  was &ldquo;no&rdquo;.
+We could rephrase this as &ldquo;The answer to question three OR four needs to be yes&rdquo;.</p>
 
 <p>Now that we broke the problem down into yes/no questions, we can design our digital circuit.</p>
 
-<p>If we represent all questions 1-5 with switches again, we can only light up the &ldquo;answer&rdquo; light if questions one, two and five are answered and either three or four have been answered with &ldquo;yes&rdquo;, so our circuit would look like this:</p>
+<p>We can represent all questions with switches.
+When answers one, two and five and at at least one of the questions three and four are yes we can turn the light on. In any other case the light will be off. Our circuit will look like this:</p>
 
 <p><img src="/img/content/foundations/Digital-Circuit-2-Simulation.gif?width=300px" alt="A series of switches and an LED where two switches are in parallel, all others are in series" /></p>
 
@@ -459,20 +460,24 @@ We could alternatively rephrase this as &ldquo;Question three OR question four n
 
 <p>The answers for Q3 and Q4 go into a kind of switch that only outputs true (&ldquo;yes&rdquo;), if <strong>at least one</strong> of the inputs is true. Then, this output and all the other questions go into a switch that only outputs true (&ldquo;yes&rdquo;), if <strong>all</strong> inputs are true.</p>
 
-<p>These two switches are called <strong>gates</strong>, in this case they are an <em>OR</em> and <em>AND</em> gate, specifically.</p>
+<p>These two switches are so-called  <strong>gates</strong>, in this case they are an <em>OR</em> and <em>AND</em> gate.</p>
 
-<div class="notices note" ><p>Such gates (and other types of gates) can be built with transistors, which is why the amount of transistors that fit into a processor matters - more transistors = more gates = more things it can do in a single step.</p>
+<div class="notices note" ><p>Transistors or combinations of transistors represent logical gates in an electric circuit. That&rsquo;s why the amount of transistors that fit into a processor matters. <br>
+More transistors = more gates = more things done in a single step.</p>
 </div>
 
 
-<p>We have seen, that both the logical circuit and the &ldquo;real&rdquo; circuit behave identically, so we can use either tool in different stages:</p>
+<p>Now we know how real digital circuits and digital logical circuits work. We have also seen that they behave identical and we can express a digital circuit as a logical one and vice versa.</p>
+
+<p>Logical circuits and real circuits are useful for different situations:</p>
 
 <ul>
-<li>When we need to figure out the <em>logic</em> (i.e. for which input combination our output is true and false), we can use the logic circuit to find our solution. Such a tool could be <a href="https://simulator.io">simulator.io</a></li>
-<li>When we need to build the real electrical circuit in hardware, we can use the circuit schematics to build the circuit based on what we have found out in the logic circuit. We can use tools such as <a href="https://tinkercad.com">TinkerCAD</a> for this</li>
+<li>When we need to figure out the <em>logic</em> (i.e. the behavior), we can use the logic circuit to find our solution. Such a tool could be <a href="https://simulator.io">simulator.io</a></li>
+<li>When we make hardware we need more detail. We need an electrical schematic, so we can use tools such as <a href="https://tinkercad.com">TinkerCAD</a> for this</li>
 </ul>
 
-<p>Now that we understand how digital logic works on a circuit level, we can move to software and binary logic (true and false, 1 and 0). This is called <a href="../boolean-logic/">boolean logic</a> and is discussed in the next section.</p>
+<p>When programming, we care less about the electrical circuits.
+In the next section we will discuss logic and operators on our values <code>true</code> and <code>false</code>. So read on to learn about <a href="../boolean-logic/">boolean logic</a> in the next section.</p>
 
 
 <footer class=" footline" >
@@ -613,20 +618,20 @@ We could alternatively rephrase this as &ldquo;Question three OR question four n
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1522965005"></script>
-    <script src="/js/perfect-scrollbar.min.js?1522965005"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1522965005"></script>
-    <script src="/js/jquery.sticky.js?1522965005"></script>
-    <script src="/js/featherlight.min.js?1522965005"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1522965005"></script>
-    <script src="/js/highlight.pack.js?1522965005"></script>
+    <script src="/js/clipboard.min.js?1523078120"></script>
+    <script src="/js/perfect-scrollbar.min.js?1523078120"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1523078120"></script>
+    <script src="/js/jquery.sticky.js?1523078120"></script>
+    <script src="/js/featherlight.min.js?1523078120"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1523078120"></script>
+    <script src="/js/highlight.pack.js?1523078120"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1522965005"></script>
-    <script src="/js/learn.js?1522965005"></script>
-    <script src="/js/hugo-learn.js?1522965005"></script>
+    <script src="/js/modernizr.custom.71422.js?1523078120"></script>
+    <script src="/js/learn.js?1523078120"></script>
+    <script src="/js/hugo-learn.js?1523078120"></script>
 
-    <link href="/mermaid/mermaid.css?1522965005" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1522965005"></script>
+    <link href="/mermaid/mermaid.css?1523078120" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1523078120"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
