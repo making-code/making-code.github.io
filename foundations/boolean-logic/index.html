@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="/images/favicon.png" type="image/x-icon" />
-    <title>Digital Circuits :: Making Code</title>
+    <title>Boolean logic :: Making Code</title>
     
     
     <link href="/css/nucleus.css?1525204141" rel="stylesheet">
@@ -34,7 +34,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/foundations/digital-circuits/">
+  <body class="" data-url="/foundations/boolean-logic/">
     <nav id="sidebar" class="">
 
 
@@ -120,7 +120,7 @@
  
   
     
-      <li data-nav-id="/foundations/digital-circuits/" title="Digital Circuits" class="dd-item active">
+      <li data-nav-id="/foundations/digital-circuits/" title="Digital Circuits" class="dd-item ">
         <a href="/foundations/digital-circuits/">
         Digital Circuits
         
@@ -139,7 +139,7 @@
  
   
     
-      <li data-nav-id="/foundations/boolean-logic/" title="Boolean logic" class="dd-item ">
+      <li data-nav-id="/foundations/boolean-logic/" title="Boolean logic" class="dd-item active">
         <a href="/foundations/boolean-logic/">
         Boolean logic
         
@@ -248,7 +248,7 @@
             
           
           
-            <a href='/'></a> > <a href='/foundations/'>Foundations</a> > Digital Circuits
+            <a href='/'></a> > <a href='/foundations/'>Foundations</a> > Boolean logic
           
          
           
@@ -264,8 +264,12 @@
 <ul>
 <li>
 <ul>
-<li><a href="#rephrasing-the-problem">Rephrasing the problem</a></li>
-<li><a href="#solving-more-complex-problems">Solving more complex problems</a></li>
+<li><a href="#logic-in-software">Logic in software</a></li>
+<li><a href="#the-operators">The operators</a></li>
+<li><a href="#not">NOT</a></li>
+<li><a href="#and">AND</a></li>
+<li><a href="#or">OR</a></li>
+<li><a href="#xor">XOR</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -280,7 +284,7 @@
         
         <div id="body-inner">
           
-            <h1>Digital Circuits</h1>
+            <h1>Boolean logic</h1>
           
 
         
@@ -288,196 +292,294 @@
 
 
 
-<p>When we work with computers, we deal with <em>digital</em> rather than <em>analog</em> circuits. They are electrical circuits that operate with two values: <strong>true</strong> and <strong>false</strong>, or <em>yes</em> and <em>no</em>.</p>
+<p>In the previous section, we can combined <strong>gates</strong> to solve larger problems with yes/no questions.</p>
 
-<p>Computers only work with those two values, usually referred to as <strong>bits</strong>. A bit is a single value that is either true or false.</p>
+<h2 id="logic-in-software">Logic in software</h2>
 
-<p>We combine 8 bits into bytes and create combinations to solve a variety of problems. But how does that work?</p>
+<p>When programming, we will often have to deal with decisions on a logical level.
+To allow us to do that, all programming languages offer some kind of boolean logic operators.</p>
 
-<h2 id="rephrasing-the-problem">Rephrasing the problem</h2>
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fa fa-chevron-down' : 'fa fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fa fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Recap: Boolean values
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>We have established that in digital logic, we work with two values. They represent the concept of &ldquo;true&rdquo; and &ldquo;false&rdquo;.</p>
 
-<p>First we need to rephrase the problem in a way that a digital circuit (e.g. a computer) can work with it.
-For example we can rephrase the problem &ldquo;Can I play computer games today?&rdquo; to &ldquo;Do I have nothing else on my schedule?&rdquo;</p>
-
-<p>That is a &ldquo;yes/no&rdquo; question, so  a digital circuit can answer it . Now we need to think of how we would represent a &ldquo;yes&rdquo; and a &ldquo;no&rdquo; answer.</p>
-
-<p>Let&rsquo;s say we use a single light - if it turns on, we can play and if it doesn&rsquo;t, we can&rsquo;t play.</p>
-
-<p>The digital circuit to answer our question could be a battery, the light and a switch. It might need a resistor, too so that the voltage through the light isn&rsquo;t too high.</p>
-
-<p>We can use the switch to input the answer to our question and the circuit will show us if we can play:</p>
+<p>Their meanings can be different depending on how you look at them, for instance:</p>
 
 <table>
 <thead>
 <tr>
-<th>Schedule free?</th>
-<th>Switch</th>
-<th>LED</th>
-<th>Can we play computer games?</th>
+<th>true</th>
+<th>false</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 <td>yes</td>
-<td>on</td>
-<td>on</td>
-<td>yes</td>
+<td>no</td>
 </tr>
 
 <tr>
-<td>no</td>
+<td>1</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>on</td>
 <td>off</td>
-<td>off</td>
-<td>no</td>
+</tr>
+
+<tr>
+<td>positive voltage</td>
+<td>negative voltage</td>
 </tr>
 </tbody>
 </table>
 
-<p>Here is a working version of our digital circuit:</p>
+<p>These values are also referred to as a <strong>boolean value</strong> or <strong>boolean</strong> for short. A boolean is something that can have one of two values and nothing else.</p>
 
-<p><img src="/img/content/foundations/Simple-Digital-Circuit-Simulation.gif?width=300px" alt="An LED that turns on, if the switch is in &quot;on&quot; position" /></p>
-
-<p>We were thinking about batteries, resistors and so on, instead of the logic. To focus on the logic we can leave all those out and focus on the logic only.</p>
-
-<p>Here is the same circuit in the logical circuit schematic:</p>
-
-<p><img src="/img/content/foundations/Simple-Digital-Circuit-Logic.gif?width=300px" alt="A logical circuit with a button toggling from zero to one and turning a light on and off" /></p>
-
-<h2 id="solving-more-complex-problems">Solving more complex problems</h2>
-
-<p>The previous digital circuit was not very interesting, but pretty simple. Let&rsquo;s think of a circuit solving a more complex problem.</p>
-
-<p>We want to build a circuit that can answer if somebody can take the company car or not. Let&rsquo;s rephrase it as a few yes/no questions:</p>
-
-<ol>
-<li>Are you old enough to drive a car?</li>
-<li>Do you have a valid drivers licence?</li>
-<li>Are you an employee of the company?</li>
-<li>If you are not an employee, did somebody give you permission to take the car?</li>
-<li>Is the car available at the desired time?</li>
-</ol>
-
-<p>We can see that question number four only matters, if the answer to question number 3  was &ldquo;no&rdquo;.
-We could rephrase this as &ldquo;The answer to question three OR four needs to be yes&rdquo;.</p>
-
-<p>Now that we broke the problem down into yes/no questions, we can design our digital circuit.</p>
-
-<p>We can represent all questions with switches.
-When answers one, two and five and at at least one of the questions three and four are yes we can turn the light on. In any other case the light will be off. Our circuit will look like this:</p>
-
-<p><img src="/img/content/foundations/Digital-Circuit-2-Simulation.gif?width=300px" alt="A series of switches and an LED where two switches are in parallel, all others are in series" /></p>
-
-<p>To explain the circuit, we can look at the questions again:</p>
-
-<table>
-<thead>
-<tr>
-<th>Old enough?</th>
-<th>Drivers licence?</th>
-<th>Employee?</th>
-<th>alternative: Permission?</th>
-<th>Car free?</th>
-<th>Result</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>no</td>
-<td>doesn&rsquo;t matter</td>
-<td>doesn&rsquo;t matter</td>
-<td>doesn&rsquo;t matter</td>
-<td>doesn&rsquo;t matter</td>
-<td>No</td>
-</tr>
-
-<tr>
-<td>yes</td>
-<td>no</td>
-<td>d.m.</td>
-<td>d.m.</td>
-<td>d.m.</td>
-<td>no</td>
-</tr>
-
-<tr>
-<td>yes</td>
-<td>yes</td>
-<td>no</td>
-<td>no</td>
-<td>d.m.</td>
-<td>no</td>
-</tr>
-
-<tr>
-<td>yes</td>
-<td>yes</td>
-<td>no</td>
-<td>yes</td>
-<td>no</td>
-<td>no</td>
-</tr>
-
-<tr>
-<td>yes</td>
-<td>yes</td>
-<td>yes</td>
-<td>no</td>
-<td>no</td>
-<td>no</td>
-</tr>
-
-<tr>
-<td>yes</td>
-<td>yes</td>
-<td>no</td>
-<td>yes</td>
-<td>yes</td>
-<td>yes</td>
-</tr>
-
-<tr>
-<td>yes</td>
-<td>yes</td>
-<td>yes</td>
-<td>no</td>
-<td>yes</td>
-<td>yes</td>
-</tr>
-</tbody>
-</table>
-
-<p>Looking at the table, we can formulate it this way: If Q3 <strong>OR</strong> Q4 are answered &ldquo;yes&rdquo; <strong>AND</strong> all other questions are answered &ldquo;yes&rdquo;, we can take the company car.</p>
-
-<p>The logical circuit is a lot less cluttered and represents the logic well:</p>
-
-<p><img src="/img/content/foundations/Digital-Circuit-2-Logic.gif?width=300px" alt="A logic circuit with five inputs, a four-input AND gate and a two-input OR gate connecting to a single light" /></p>
-
-<p><a href="https://simulator.io/board/zpiq7E0S3K/1">For an interactive version, click here</a>.</p>
-
-<p>In the logic circuit above, you see an input that is either &ldquo;1&rdquo; (&ldquo;yes&rdquo;, on) or &ldquo;0&rdquo; (&ldquo;no&rdquo;, off) for each question. This is where we put our answers in.</p>
-
-<p>The answers for Q3 and Q4 go into a kind of switch that only outputs true (&ldquo;yes&rdquo;), if <strong>at least one</strong> of the inputs is true. Then, this output and all the other questions go into a switch that only outputs true (&ldquo;yes&rdquo;), if <strong>all</strong> inputs are true.</p>
-
-<p>These two switches are so-called  <strong>gates</strong>, in this case they are an <em>OR</em> and <em>AND</em> gate.</p>
-
-<div class="notices note" ><p>Transistors or combinations of transistors represent logical gates in an electric circuit. That&rsquo;s why the amount of transistors that fit into a processor matters. <br>
-More transistors = more gates = more things done in a single step.</p>
+    </div>
 </div>
 
+<p>For this chapter, we will use <code>true</code> and <code>false</code> to refer to our boolean values.</p>
 
-<p>Now we know how real digital circuits and digital logical circuits work. We have also seen that they behave identical and we can express a digital circuit as a logical one and vice versa.</p>
+<h2 id="the-operators">The operators</h2>
 
-<p>Logical circuits and real circuits are useful for different situations:</p>
+<p>Let&rsquo;s see what those operators are:</p>
 
 <ul>
-<li>When we need to figure out the <em>logic</em> (i.e. the behavior), we can use the logic circuit to find our solution. Such a tool could be <a href="https://simulator.io">simulator.io</a></li>
-<li>When we make hardware we need more detail. We need an electrical schematic, so we can use tools such as <a href="https://tinkercad.com">TinkerCAD</a> for this</li>
+<li>Not (negation)</li>
+<li>And (conjunction)</li>
+<li>Or (disjunction)</li>
+<li>Exclusive Or (XOR)</li>
 </ul>
 
-<p>When programming, we care less about the electrical circuits.
-In the next section we will discuss logic and operators on our values <code>true</code> and <code>false</code>. So read on to learn about <a href="../boolean-logic/">boolean logic</a> in the next section.</p>
+<p>Let&rsquo;s dive into each of them!</p>
+
+<h2 id="not">NOT</h2>
+
+<p>This operator is most useful in combination with one of the other two operators or alone.
+It inverts, i.e. &ldquo;turns around&rdquo; a boolean value:</p>
+
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>NOT x</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>true</td>
+<td>false</td>
+</tr>
+
+<tr>
+<td>false</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+
+<p>In most programming languages this operator is either expressed as <code>!</code> (e.g. <code>!x</code> is the negation of a boolean <code>x</code>) or the word <code>not</code>.</p>
+
+<p><img src="/img/content/foundations/boolean-not.gif" alt="A logical circuit for the NOT operator" /></p>
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fa fa-chevron-down' : 'fa fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fa fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Example
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <pre><code class="language-js">var child = { wasNice: false };
+var wasNice = child.wasNice;
+var wasNaughty = !wasNice; // wasNaughty will be true
+</code></pre>
+
+    </div>
+</div>
+
+<h2 id="and">AND</h2>
+
+<p>The logical <em>and</em> operator outputs true when the two input booleans <strong>are both</strong> true.</p>
+
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>y</th>
+<th>x AND y</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+</tr>
+
+<tr>
+<td>true</td>
+<td>false</td>
+<td>false</td>
+</tr>
+
+<tr>
+<td>false</td>
+<td>true</td>
+<td>false</td>
+</tr>
+
+<tr>
+<td>true</td>
+<td>true</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="/img/content/foundations/boolean-and.gif" alt="A logical circuit for the AND operator" /></p>
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fa fa-chevron-down' : 'fa fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fa fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Example
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <pre><code class="language-js">var user = { isLoggedIn: true, isAdmin: false };
+if (user.isLoggedIn &amp;&amp; user.isAdmin) {
+  console.log('Welcome, boss!');
+}
+</code></pre>
+
+    </div>
+</div>
+
+<p>In most programming languages this operator is either expressed as <code>&amp;&amp;</code> (e.g. <code>x &amp;&amp; y</code>) or the word <code>and</code>.</p>
+
+<h2 id="or">OR</h2>
+
+<p>The logical <em>or</em> operator outputs true when <strong>at least one</strong> of two input booleans is true.</p>
+
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>y</th>
+<th>x OR y</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>false</td>
+<td>false</td>
+<td>false</td>
+</tr>
+
+<tr>
+<td>true</td>
+<td>false</td>
+<td>true</td>
+</tr>
+
+<tr>
+<td>false</td>
+<td>true</td>
+<td>true</td>
+</tr>
+
+<tr>
+<td>true</td>
+<td>true</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="/img/content/foundations/boolean-or.gif" alt="A logical circuit for the OR operator" /></p>
+
+<p>In most programming languages this operator is either expressed as <code>||</code> (e.g. <code>x || y</code>) or the word <code>or</code>.</p>
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fa fa-chevron-down' : 'fa fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fa fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Example
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <pre><code class="language-js">var wantsKetchup = true;
+var wantsMayo = false;
+
+if (wantsKetchup || wantsMayo) {
+  console.log('Putting sauce(s) on your fries...');
+}
+</code></pre>
+
+    </div>
+</div>
+
+<h2 id="xor">XOR</h2>
+
+<p>The <code>OR</code> operator returns <code>true</code> when <em>at least one</em> of its inputs is true. What if we want to return <code>true</code> when <em>exactly</em> one input is true?</p>
+
+<p>This is a common logical operator called <em>e<strong>X</strong>clusive <strong>OR</strong></em> or <code>XOR</code> for short.
+It is usually not considered a <em>basic</em> boolean operator. It is a combination of <code>NOT</code>, <code>AND</code> and <code>OR</code>.</p>
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fa fa-chevron-down' : 'fa fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fa fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Creating the XOR from other operators
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>The <code>XOR</code> operator is a combination of  <code>NOT</code>, <code>AND</code> and <code>OR</code> operations.
+We have two booleans <code>x</code> and <code>y</code> and we only want to have a <code>true</code> as the result if <em>either</em> <code>x</code> or <code>y</code> are <code>true</code>, but <em>not</em> if <em>both</em> are <code>true</code>.</p>
+
+<p>There are at least two ways of implementing this with logical <code>NOT</code>, <code>AND</code> and <code>OR</code>:</p>
+
+<ol>
+<li><code>(x &amp;&amp; (!y)) || ((!x) &amp;&amp; y)</code></li>
+<li><code>(x || y) &amp;&amp; (!y || !x)</code></li>
+</ol>
+
+<p>Here&rsquo;s a logical circuit to demonstrate this by comparing the first way to an actual XOR:</p>
+
+<p><img src="/img/content/foundations/boolean-xor.gif" alt="Using two AND gates, two inverters and one OR gate to create an XOR gate" /></p>
+
+<p><a href="https://simulator.io/board/3mrRGpOUrx/1">Here is an interactive version</a></p>
+
+    </div>
+</div>
 
 
 <footer class=" footline" >
@@ -549,6 +651,25 @@ In the next section we will discuss logic and operators on our values <code>true
             
                 
                     
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -580,22 +701,6 @@ In the next section we will discuss logic and operators on our values <code>true
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -606,10 +711,10 @@ In the next section we will discuss logic and operators on our values <code>true
 
 
         
-            <a class="nav nav-prev" href="/foundations/" title="Foundations"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/foundations/digital-circuits/" title="Digital Circuits"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/foundations/boolean-logic/" title="Boolean logic" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/foundations/binary-numbers/" title="Binary numbers" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 

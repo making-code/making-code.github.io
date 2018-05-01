@@ -28,9 +28,9 @@ We combine 8 bits into bytes and create combinations to solve a variety of probl
       <pubDate>Tue, 03 Apr 2018 12:03:53 +0200</pubDate>
       
       <guid>http://makingco.de/foundations/boolean-logic/</guid>
-      <description>In the previous section, we have seen that we can use gates in a digital circuit to represent and answer more complex problems.
-Logic in software When programming software, we will often have to deal with decisions on a logical level or even on a bit-level. To allow us to do that, all programming languages offer some kind of boolean logic operators.
-  Recap: Boolean values   We have established that in digital logic, we work with two values.</description>
+      <description>In the previous section, we can combined gates to solve larger problems with yes/no questions.
+Logic in software When programming, we will often have to deal with decisions on a logical level. To allow us to do that, all programming languages offer some kind of boolean logic operators.
+  Recap: Boolean values   We have established that in digital logic, we work with two values. They represent the concept of &amp;ldquo;true&amp;rdquo; and &amp;ldquo;false&amp;rdquo;.</description>
     </item>
     
     <item>
